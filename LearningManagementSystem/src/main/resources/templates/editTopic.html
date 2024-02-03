@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Comment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div align="center">
+    <h1>Edit Topic</h1>
+    <br />
+    <div class="col-sm-4">
+        <form action="#" th:action="@{/saveExistingTopic}" th:object="${df}" method="post">
+            <div alight="left">
+
+                <tr>
+                    <input type="hidden" th:field="*{id}" />
+                    <td><input type="text" th:field="*{title}" class="form-control" placeholder="Comment" /></td>
+                </tr>
+            <br>
+            <tr>
+                <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3><a th:href="@{'/allTopics'}">View All</a></h3>
+                </td>
+            </tr>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

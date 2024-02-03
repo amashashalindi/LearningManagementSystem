@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Edit Existing Student</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+  <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+  <style>
+    nav{
+      background-color: mediumpurple;
+      color:white;
+    }
+    .nav-link{
+      color:white;
+    }
+    .nav-link:hover{
+      color:black;
+    }
+    .content{
+      margin:10px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand text-light" href="#">LMS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{'/allStudents'}">View Students </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{'/allSubjects'}">View Subjects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{'/allTeachers'}">View Teachers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{'/allTopics'}">Discussion Forum</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{'/allAnnouncements'}">Announcements</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="content">
+  <h1>Edit Existing Teacher</h1>
+  <br />
+  <div class="col-sm-4">
+    <form action="#" th:action="@{/saveTeacher}" th:object="${teacher}" method="post">
+      <div alight="left">
+        <tr>
+          <label class="form-label" >First Name</label>
+          <td>
+            <input type="hidden" th:field="*{id}" />
+            <input type="text" th:field="*{firstName}" class="form-control" placeholder="First Name" />
+          </td>
+        </tr>
+      </div>
+
+      <div alight="left">
+
+        <tr>
+          <label class="form-label" >Last Name</label>
+          <td><input type="text" th:field="*{lastName}" class="form-control" placeholder="Last Name" /></td>
+        </tr>
+      </div>
+      <div alight="left">
+        <tr>
+          <label class="form-label" >Nic</label>
+          <td><input type="text" th:field="*{nic}" class="form-control" placeholder="NIC" /></td>
+        </tr>
+      </div>
+      <div alight="left">
+        <tr>
+          <label class="form-label" >Mobile No</label>
+          <td><input type="text" th:field="*{mobileNumber}" class="form-control" placeholder="Mobile No" /></td>
+        </tr>
+      </div>
+      <div alight="left">
+        <tr>
+          <label class="form-label" >Address</label>
+          <td><input type="text" th:field="*{address}" class="form-control" placeholder="Address" /></td>
+        </tr>
+      </div>
+      <br>
+      <tr>
+        <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+      </tr>
+      </table>
+    </form>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Titles</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    <style>
+        nav{
+            background-color: mediumpurple;
+            color:white;
+        }
+        .nav-link{
+            color:white;
+        }
+        .nav-link:hover{
+            color:black;
+        }
+        .content{
+            margin:10px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand text-light" href="#">LMS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allStudents'}">View Students </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allSubjects'}">View Subjects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allTeachers'}">View Teachers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allTopics'}">Discussion Forum</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allAnnouncements'}">Announcements</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content">
+    <h2>Discussion Forum Topics</h2>
+
+    <div class="col-sm-5" align = "center">
+        <div class="panel-body" align = "center" >
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Title</th>
+                    <div align = "left" >
+                        <h3><a  th:href="@{'/addTopic'}">Add new</a></h3>
+                    </div>
+                </thead>
+                <tbody>
+                <tr  th:each="topic : ${listTopics }">
+                    <td th:text="${topic.title}">Title</td>
+                    <td><a th:href="@{'/addComment/' + ${topic.id}}">Add comment</a></td>
+                    <td><a th:href="@{'/allComments/' + ${topic.id}}">View Comments</a></td>
+                    <td>
+                        <a th:href="@{'/editTopic/' + ${topic.id}}">Edit</a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/deleteTopic/' + ${topic.id}}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>All Teachers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    <style>
+        nav{
+            background-color: mediumpurple;
+            color:white;
+        }
+        .nav-link{
+            color:white;
+        }
+        .nav-link:hover{
+            color:black;
+        }
+        .content{
+            margin:10px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand text-light" href="#">LMS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allStudents'}">View Students </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allSubjects'}">View Subjects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allTeachers'}">View Teachers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allTopics'}">Discussion Forum</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allAnnouncements'}">Announcements</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content">
+    <h2 >Teacher List</h2>
+    <tr>
+        <div align = "left" >
+            <h3><a  th:href="@{'/newTeacher'}">Add new</a></h3>
+        </div>
+
+    </tr>
+    <tr>
+
+        <div class="col-sm-5" align = "center">
+            <div class="panel-body" align = "center" >
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>NIC</th>
+                        <th>Address</th>
+                        <th>Mobile No</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  th:each="teacher: ${listteacher }">
+                        <td th:text="${teacher.firstName}">FirstName</td>
+                        <td th:text="${teacher.lastName}">LastName</td>
+                        <td th:text="${teacher.nic}">NIC</td>
+                        <td th:text="${teacher.address}">Address</td>
+                        <td th:text="${teacher.mobileNumber}">Mobile No</td>
+                        <td>
+                            <a th:href="@{'/editTeacher/' + ${teacher.id}}">Edit</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/deleteTeacher/' + ${teacher.id}}">Delete</a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </tr>
+
+    </tbody>
+    </table>
+</div>
+</div>
+</body>
+</html>

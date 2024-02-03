@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    <style>
+        nav{
+            background-color: mediumpurple;
+            color:white;
+        }
+        .nav-link{
+            color:white;
+        }
+        .nav-link:hover{
+            color:black;
+        }
+        .content{
+            margin:10px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand text-light" href="#">LMS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allStudents'}">View Students </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allSubjects'}">View Subjects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allTeachers'}">View Teachers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allTopics'}">Discussion Forum</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/allAnnouncements'}">Announcements</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div align="center">
+    <h1>Create New Announcement</h1>
+    <br />
+    <div class="col-sm-4">
+        <form action="#" th:action="@{/saveAnnouncement}" th:object="${announcement}" method="post">
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Announcement Name</label>
+                    <td>
+                        <input type="hidden" th:field="*{id}" />
+                        <input type="text" th:field="*{announcementName}" class="form-control" placeholder="Announcement Name" />
+                    </td>
+                </tr>
+            </div>
+
+            <div alight="left">
+
+                <tr>
+                    <label class="form-label" >Posted By</label>
+                    <td><input type="text" th:field="*{postedBy}" class="form-control" placeholder="Posted By" /></td>
+                </tr>
+            </div>
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Date posted</label>
+                    <td><input type="text" th:field="*{postedDate}" class="form-control" placeholder="Date Posted" /></td>
+                </tr>
+            </div>
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Description</label>
+                    <td><input type="text" th:field="*{description}" class="form-control" placeholder="Description" /></td>
+                </tr>
+            </div>
+            <br>
+            <tr>
+                <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+            </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

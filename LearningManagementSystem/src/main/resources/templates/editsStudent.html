@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>Create New Student</h1>
+        <br />
+        <div class="col-sm-4">
+            <form action="#" th:action="@{/saveStudent}" th:object="${student}" method="post">
+                <div alight="left">
+                    <tr>
+                        <label class="form-label">First Name</label>
+                        <td>
+                            <input type="hidden" th:field="*{id}" />
+                            <input type="text" th:field="*{firstName}" class="form-control" placeholder="Student Name" />
+                        </td>
+                    </tr>
+                </div>
+
+                <div alight="left">
+
+                    <tr>
+                        <label class="form-label">Last Name</label>
+                        <td><input type="text" th:field="*{lastName}" class="form-control" placeholder="Last Name" /></td>
+                    </tr>
+                </div>
+                <div alight="left">
+                    <tr>
+                        <label class="form-label">Date of Birth</label>
+                        <td><input type="text" th:field="*{dateOfBirth}" class="form-control" placeholder="DOB" /></td>
+                    </tr>
+                </div>
+                <div alight="left">
+                    <tr>
+                        <label class="form-label">Address</label>
+                        <td><input type="text" th:field="*{address}" class="form-control" placeholder="Address" /></td>
+                    </tr>
+                </div>
+                <br>
+                <tr>
+                    <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3><a th:href="@{'/allStudents'}">View All</a></h3>
+                    </td>
+                </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
